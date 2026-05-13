@@ -3,3 +3,4 @@ module "s3-module" {
   region_value = "us-east-1"
   bucket_value = "venkat-remote-state-s3-bucket" # replace this
 }
+
