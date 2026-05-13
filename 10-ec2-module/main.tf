@@ -12,3 +12,5 @@ variable "tfvar_ami_value" {}
 variable "tfvar_instance_type_value" {}
 variable "tfvar_subnet_id_value" {}
 variable "tfvar_instance_name_value" {}
+
+
