@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
 terraform {
   backend "s3" {
     bucket         = "venkat-remote-state-s3-bucket" ### change this
