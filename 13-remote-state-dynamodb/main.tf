@@ -8,7 +8,7 @@ terraform {
     key            = "venkat/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
-   ### dynamodb_table = "terraform-lock"   ### this is depricated
-    use_lockfile   = "terraform-lock"   ### change this
+    dynamodb_table = "terraform-lock"   ### this is depricated
+    ### use_lockfile   = "terraform-lock"   ### change this
   }
 }
