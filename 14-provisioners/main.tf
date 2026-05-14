@@ -10,13 +10,6 @@ variable "cidr" {
 }
 
 
-### Step-3 Create aws key pair to access the ec2 instance
-resource "aws_key_pair" "example" {
-  key_name   = "terraform-demo-venkat"  # Replace with your desired key name
-  public_key = file("~/.ssh/id_rsa.pub")  # Replace with the path to your public key file
-}
-
-
 ### Step-4 Create vpc network
 resource "aws_vpc" "myvpc" {
   cidr_block = var.cidr
@@ -90,6 +83,16 @@ resource "aws_security_group" "webSg" {
     Name = "Web-sg"
   }
 }
+
+
+### Step-3 Create aws key pair to access the ec2 instance
+resource "aws_key_pair" "example" {
+  key_name   = "terraform-demo-venkat"  # Replace with your desired key name
+  ### public_key = file("~/.ssh/id_rsa.pub")  # Replace with the path to your public key file
+  public_key = file("/home/ubuntu/.ssh/id_rsa.pub")  # Replace with the path to your public key file
+}
+
+
 
 ### Create ec2 instance
 resource "aws_instance" "server" {
