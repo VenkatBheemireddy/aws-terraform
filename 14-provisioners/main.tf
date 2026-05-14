@@ -86,12 +86,12 @@ resource "aws_security_group" "webSg" {
 
 
 ### Step-3 Create aws key pair to access the ec2 instance
+### Make sure to run the command  $ssh-keygen -t rsa
 resource "aws_key_pair" "example" {
   key_name   = "terraform-demo-venkat"  # Replace with your desired key name
-  ### public_key = file("~/.ssh/id_rsa.pub")  # Replace with the path to your public key file
-  public_key = file("/home/ubuntu/.ssh/id_rsa.pub")  # Replace with the path to your public key file
+  public_key = file("~/.ssh/id_rsa.pub")  # Replace with the path to your public key file
+  ## public_key = file("/home/ubuntu/.ssh/id_rsa.pub")  # Replace with the path to your public key file
 }
-
 
 
 ### Create ec2 instance
@@ -105,8 +105,8 @@ resource "aws_instance" "server" {
   connection {
     type        = "ssh"
     user        = "ubuntu"  # Replace with the appropriate username for your EC2 instance
-    ## private_key = file("~/.ssh/id_rsa")  # Replace with the path to your private key
-    private_key = file("/home/ubuntu/.ssh/id_rsa")  # Replace with the path to your private key
+    private_key = file("~/.ssh/id_rsa")  # Replace with the path to your private key
+    ## private_key = file("/home/ubuntu/.ssh/id_rsa")  # Replace with the path to your private key
     host        = self.public_ip
   }
 
