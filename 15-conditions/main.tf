@@ -6,9 +6,9 @@ output "test" {
 
 # These conditions with the combination of loop can be used to determine whether a
 # resource to run or not
-resource "null_resource" "test" {
-  count = var.a > 10 ? 1 : 0
-}
+#resource "null_resource" "test" {
+#  count = var.a > 10 ? 1 : 0
+#}
 
 # If the above expression var.a > 10 ? 1 : 0, lets us say it needs to be used in
 # 10 different places, tomorrow if we want to change the expression, it becomes
@@ -19,6 +19,10 @@ locals {
   count = var.a > 10 ? 1 : 0
 }
 
-resource "null_resource" "test1" {
-  count = local.count
+output "o1" {
+  value = local.count
 }
+
+#resource "null_resource" "test1" {
+#  count = local.count
+#}
