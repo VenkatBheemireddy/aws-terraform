@@ -79,6 +79,7 @@ resource "aws_security_group" "webSg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ### vm name
   tags = {
     Name = "Web-sg"
   }
@@ -123,7 +124,7 @@ resource "aws_instance" "server" {
       "sudo apt-get install -y python3-pip",  # Example package installation
       "cd /home/ubuntu",
       "sudo apt-install python3-flask -y",
-      "sudo python3 app.py &",
+      "sudo python3 app.py &",  ### here, & means backend execution
     ]
   }
 }
